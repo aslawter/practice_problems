@@ -8,7 +8,6 @@ class Poker
 
   def play
     identify_players
-   # create_players
     # deal_cards
     # print_hands
   end
@@ -17,16 +16,17 @@ class Poker
     puts "Enter the number of players for this game"
     print ">"
     number_of_players = gets.chomp
-    number_of_players = number_of_players.to_i
+    create_players(number_of_players)
   end
 
-  def create_players
+  def create_players(number_of_players)
     @players= []
     player_number = 1
-    number_of_players.times do |player|
+    number_of_players.to_i.times do |player|
       @players.push(Player.new(player_number))
       player_number = player_number + 1
     end
+    puts @players
   end
   
   def deal_cards
@@ -37,6 +37,5 @@ class Poker
 end
 
 deck = Deck.new
-deck.display
 poker = Poker.new(deck)
 poker.play
