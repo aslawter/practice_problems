@@ -31,37 +31,6 @@ class Poker
   end
 end
 
-class Deck
-  def initialize(@cards)
-    @deck = cards.shuffle
-  end
-
-  def whatever_fix_this
-    suites = ["Hearts", "Spades", "Diamonds", "Clubs"]
-    ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"]
-
-    @cards = []
-    suits.each do |i|
-      ranks.length.times do |i|
-        @cards.push(Card.new(ranks[i], suit, (i + 1)))
-      end
-    end
-  end
-end
-
-class Card
-  def initialize(ranks, suit
-
-  end
-end
-
-# Card.new => error
-# Card.new(rank, suit) => no error
-
-class Player
-  def initialize
-    player = Player.new
-end
 
 poker = Poker.new(deck)
 poker.play
