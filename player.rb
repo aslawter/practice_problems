@@ -1,5 +1,4 @@
 class Player
-  def initialize(name)
-    player = Player.new
+  def initialize(player_number)
   end
 end

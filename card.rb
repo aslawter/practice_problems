@@ -6,6 +6,6 @@ class Card
 
   def display
     puts @rank.inspect
-    puts @suit.inspect
+    puts @suit.inspec
   end
 end

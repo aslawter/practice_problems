@@ -22,11 +22,13 @@ class Poker
 
   def create_players
     @players= []
+    player_number = 1
     number_of_players.times do |player|
-      @players.push(Player.new(player + 1))
+      @players.push(Player.new(player_number))
+      player_number = player_number + 1
     end
   end
-
+  
   def deal_cards
     1.upto(@players) do |hands|
       hands
