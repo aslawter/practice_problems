@@ -3,7 +3,7 @@ require "./card"
 class Deck
   def initialize
     create_deck
-    @cards = @cards.shuffle!
+    @cards = @cards.shuffle
   end
 
   def create_deck

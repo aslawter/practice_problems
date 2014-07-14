@@ -8,7 +8,7 @@ class Poker
 
   def play
     identify_players
-    create_players
+   # create_players
     # deal_cards
     # print_hands
   end
@@ -37,5 +37,6 @@ class Poker
 end
 
 deck = Deck.new
+deck.display
 poker = Poker.new(deck)
 poker.play
