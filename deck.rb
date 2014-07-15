@@ -6,12 +6,8 @@ class Deck
     @cards = @cards.shuffle
   end
 
-  def draw(number_of_cards_in_game)
-    @cards.sample
-  end
-
-  def remove_drawn_cards(cards_to_remove)
-    @cards.pop
+  def draw(quantity)
+    @cards.pop(quantity)
   end
 
   private

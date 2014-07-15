@@ -5,14 +5,14 @@ CARDS_FOR_FIVE_CARD_STUD = 5
 
 class Poker
   def initialize(deck)
-    @deck= deck 
+    @deck = deck 
     @players = []
   end
 
   def play
     identify_players
     deal
-    # print_hands
+    display_hands
   end
 
   def identify_players
@@ -33,7 +33,6 @@ class Poker
   def deal
     @players.each do |player_hands|
       player_hand = @deck.draw(CARDS_FOR_FIVE_CARD_STUD)
-      @deck = @deck.remove_drawn_cards(player_hand)
     end
   end
 
@@ -43,6 +42,7 @@ class Poker
     end
   end
 end
+
   deck = Deck.new
   poker = Poker.new(deck)
   poker.play
