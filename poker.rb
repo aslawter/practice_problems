@@ -1,9 +1,11 @@
 require "./deck"
 require "./player"
 
+CARDS_IN_FIVE_CARD_STUD = 5
+
 class Poker
-  def initialize(cards)
-    @cards= @cards 
+  def initialize(deck)
+    @deck= @deck 
   end
 
   def play
@@ -30,8 +32,8 @@ class Poker
 
   def deal
     @players.each do |player_hands|
-      player_hand = @cards.sample(5)
-      @cards= @cards.pop(player_hand)
+      player_hand = @deck.sample(CARDS_IN_FIVE_CARD_STUD)
+      @deck = @deck.pop(player_hand)
     end
   end
 
