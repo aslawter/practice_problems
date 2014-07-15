@@ -6,6 +6,16 @@ class Deck
     @cards = @cards.shuffle
   end
 
+  def draw(number_of_cards_in_game)
+    @cards.sample
+  end
+
+  def remove_drawn_cards(cards_to_remove)
+    @cards.pop
+  end
+
+  private
+
   def create_deck
     suits = ["Hearts", "Spades", "Diamonds", "Clubs"]
     ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
@@ -18,11 +28,10 @@ class Deck
     end
   end
 
-  def display 
+  def display
     @cards.each do |card|
       card.display
     end
     puts @cards.size
   end
-  
 end
