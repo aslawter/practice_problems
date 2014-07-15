@@ -2,13 +2,13 @@ require "./deck"
 require "./player"
 
 class Poker
-  def initialize(deck)
-    @deck = deck
+  def initialize(cards)
+    @cards= @cards 
   end
 
   def play
     identify_players
-    # deal_cards
+    deal
     # print_hands
   end
 
@@ -20,22 +20,27 @@ class Poker
   end
 
   def create_players(number_of_players)
-    @players= []
+    @players = []
     player_number = 1
     number_of_players.to_i.times do |player|
       @players.push(Player.new(player_number))
       player_number = player_number + 1
     end
-    puts @players
   end
-  
-  def deal_cards
-    1.upto(@players) do |hands|
-      hands
+
+  def deal
+    @players.each do |player_hands|
+      player_hand = @cards.sample(5)
+      @cards= @cards.pop(player_hand)
+    end
+  end
+
+  def display_hand
+    @players.each do |reveal|
+      player_hands[0] = player_number
     end
   end
 end
-
-deck = Deck.new
-poker = Poker.new(deck)
-poker.play
+  deck = Deck.new
+  poker = Poker.new(deck)
+  poker.play
