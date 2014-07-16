@@ -1,4 +1,4 @@
-require "./db_generator.rb"
+require "./database_generator.rb"
 
 class HotelFinder
   def initialize(hotels)
@@ -22,7 +22,8 @@ class HotelFinder
   end
 
   def print_results
-    puts @hotels[customer_search] || NullHotel.new
+    search_results = @hotels[customer_search] || NullHotel.new
+    puts search_results
   end
 end
 

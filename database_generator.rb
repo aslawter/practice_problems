@@ -1,6 +1,6 @@
 require "csv"
 
-class DbGenerator
+class DatabaseGenerator
   def initialize(filename)
     @filename = filename
   end
