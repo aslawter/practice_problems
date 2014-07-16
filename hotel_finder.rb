@@ -18,12 +18,13 @@ class HotelFinder
   end
 
   def perform_search
-
+    customer_search = gets.chomp
   end
 
   def print_results
+    puts @hotels[customer_search] || NullHotel.new
   end
 end
 
-hotels = Dbgenerator.new
+hotels = DatabaseGenerator.new("hotels.csv")
 hotel_finder = HotelFinder.new(hotels)
