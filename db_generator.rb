@@ -17,3 +17,5 @@ class DbGenerator
     end
   end 
 end
+
+hotels = Dbgenerator.new(filename)

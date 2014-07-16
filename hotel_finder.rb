@@ -1,29 +1,16 @@
-require "csv"
+require "./db_generator.rb"
 
 class HotelFinder
-  def initialize(filename)
-    @filename = filename
+  def initialize(hotels)
+    @hotels = hotels
   end
 
   def run
-    collect_hotel_info
     print_instructions
     perform_search
     print_results
   end
 
-  def collect_hotel_info 
-    @hotels = {}
-    CSV.foreach(@filename, headers: true) do |row|
-      name = row["Hotel"]
-      city = row["City"]
-      phone = row["Phone Number"]
-      singles = row["Number of Singles"]
-      doubles = row["Number of Doubles"]
-      hotels[name] = (city, phone, singles, doubles)
-    end
-  end 
-  
   def print_instructions
     puts "Search for hotel information"
     puts "Please enter a hotel name"
@@ -38,5 +25,5 @@ class HotelFinder
   end
 end
 
-hotel_finder = HotelFinder.new("hotels.csv")
-hotel_finder.names
+hotels = Dbgenerator.new
+hotel_finder = HotelFinder.new(hotels)
