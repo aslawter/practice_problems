@@ -15,7 +15,6 @@ class RockPaperScissorsGame
       interpret_player_response
       generate_computer_move
       compare_results
-      print_results
     end
   end
 
@@ -53,17 +52,13 @@ class RockPaperScissorsGame
                  "scissors" => "You win" },
       "paper" => {"paper" => "Draw, no winner",
                   "scissors" => "Computer wins!",
-                  "rock" => "You win!" }
+                  "rock" => "You win!" },
       "scissors" => {"scissors" => "Draw, no winner",
                      "rock" => "Computer wins!",
                      "paper" => "You win"},
     }
-    puts player_versus_computer_results[@player_move][@computer_move]
-  end
-
- def print_results
     puts "The computer put #{@computer_move}"
-    puts "The winner is: #{@winner}"
+    puts player_versus_computer_results[@player_move][@computer_move]
     puts "End of game."
     puts
   end
