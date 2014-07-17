@@ -1,9 +1,6 @@
 require './computer'
 
 class RockPaperScissorsGame
-
-  ANSWER_OPTIONS = ["rock", "paper", "scissors"]
-
   def initialize(computer)
     @computer = computer
   end
@@ -12,10 +9,10 @@ class RockPaperScissorsGame
     loop do
       state_rules
       ask_for_player_move
-      make_player_move
+      validate_player_move
+      interpret_player_answer
       generate_computer_answer
       compare_results
-      print_results
       declare_winner
     end
   end
@@ -27,31 +24,30 @@ class RockPaperScissorsGame
 
   def ask_for_player_move
     print "What's your move? > "
-    @player_answer = gets.chomp
+    @player_move = gets.chomp
   end
 
-  def validate_answer
-    valid_answer = ANSWER_OPTIONS.include? @player_answer || @player_answer == "q"
-    while @player_answer != valid_answer
+  def validate_player_move
+    answer_options = ["rock", "paper", "scissors"]
+    @valid_response = answer_options.include? @player_move || @player_move == "q"
+    while @player_move != @valid_response
      puts "Sorry, please enter a valid response"
      @player_answer = gets.chomp
     end
   end
-
-  def make_player_move
-    compare_results
+  
+  def interpret_player_answer
+    if @player_move == "q"
+      exit
+    end
   end
 
   def generate_computer_answer
-    @computer_answer = @computer.move
+    @computer_move = @computer.move
   end
 
   def compare_results
-
-  end
-
-  def print_results
-
+    puts "comparing results"
   end
 
   def declare_winner

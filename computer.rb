@@ -1,6 +1,6 @@
 class Computer 
 
   def move 
-    @computer_answer = RockPaperScissorsGame::ANSWER_OPTIONS.shuffle.first
+    @computer_answer = rand(3) 
   end
 end
