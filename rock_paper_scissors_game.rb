@@ -13,10 +13,11 @@ class RockPaperScissorsGame
                    "paper" => "You win"},
   }
 
+  ANSWER_OPTIONS = PLAYER_VERSUS_COMPUTER_RESULTS.keys
+  VALID_INPUT = ANSWER_OPTIONS + ["q"]
+
   def initialize(computer)
     @computer = computer
-    @answer_options = ["rock", "paper", "scissors"]
-    @valid_input = @answer_options + ["q"]
   end
 
   def play
@@ -41,7 +42,7 @@ class RockPaperScissorsGame
   end
 
   def validate_player_move
-    until @valid_input.include?(@player_move)
+    until VALID_INPUT.include?(@player_move)
       print "Sorry, please enter a valid response > "
       @player_move = gets.chomp.downcase
     end
@@ -54,7 +55,7 @@ class RockPaperScissorsGame
   end
 
   def generate_computer_move
-    @computer_move = @answer_options[@computer.move]
+    @computer_move = ANSWER_OPTIONS[@computer.move]
   end
 
   def compare_results
