@@ -1,6 +1,18 @@
 require './computer'
 
 class RockPaperScissorsGame
+  PLAYER_VERSUS_COMPUTER_RESULTS = {
+    "rock" => {"rock" => "Draw, no winner",
+               "paper" => "Computer wins!",
+               "scissors" => "You win" },
+    "paper" => {"paper" => "Draw, no winner",
+                "scissors" => "Computer wins!",
+                "rock" => "You win!" },
+    "scissors" => {"scissors" => "Draw, no winner",
+                   "rock" => "Computer wins!",
+                   "paper" => "You win"},
+  }
+
   def initialize(computer)
     @computer = computer
     @answer_options = ["rock", "paper", "scissors"]
@@ -25,13 +37,13 @@ class RockPaperScissorsGame
 
   def ask_for_player_move
     print "What's your move? > "
-    @player_move = gets.chomp
+    @player_move = gets.chomp.downcase
   end
 
   def validate_player_move
     until @valid_input.include?(@player_move)
       print "Sorry, please enter a valid response > "
-      @player_move = gets.chomp
+      @player_move = gets.chomp.downcase
     end
   end
 
@@ -46,21 +58,10 @@ class RockPaperScissorsGame
   end
 
   def compare_results
-    player_versus_computer_results = {
-      "rock" => {"rock" => "Draw, no winner",
-                 "paper" => "Computer wins!",
-                 "scissors" => "You win" },
-      "paper" => {"paper" => "Draw, no winner",
-                  "scissors" => "Computer wins!",
-                  "rock" => "You win!" },
-      "scissors" => {"scissors" => "Draw, no winner",
-                     "rock" => "Computer wins!",
-                     "paper" => "You win"},
-    }
     puts "The computer put #{@computer_move}"
-    puts player_versus_computer_results[@player_move][@computer_move]
+    puts PLAYER_VERSUS_COMPUTER_RESULTS[@player_move][@computer_move]
     puts "End of game."
-    puts
+    puts "-------------------"
   end
 end
 
