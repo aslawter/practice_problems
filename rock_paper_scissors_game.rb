@@ -15,7 +15,7 @@ class RockPaperScissorsGame
       interpret_player_response
       generate_computer_move
       compare_results
-      print_results 
+      print_results
     end
   end
 
@@ -35,7 +35,7 @@ class RockPaperScissorsGame
       @player_move = gets.chomp
     end
   end
-  
+
   def interpret_player_response
     if @player_move == "q"
       exit
@@ -47,14 +47,25 @@ class RockPaperScissorsGame
   end
 
   def compare_results
-    winning_combos = {"rock" => "scissors", "scissors" => "paper, paper" => "rock" }
+    player_versus_computer_results = {
+      "rock" => {"rock" => "Draw, no winner",
+                 "paper" => "Computer wins!",
+                 "scissors" => "You win" },
+      "paper" => {"paper" => "Draw, no winner",
+                  "scissors" => "Computer wins!",
+                  "rock" => "You win!" }
+      "scissors" => {"scissors" => "Draw, no winner",
+                     "rock" => "Computer wins!",
+                     "paper" => "You win"},
+    }
+    puts player_versus_computer_results[@player_move][@computer_move]
   end
 
  def print_results
-    puts "You put #{@player_move}"
     puts "The computer put #{@computer_move}"
     puts "The winner is: #{@winner}"
     puts "End of game."
+    puts
   end
 end
 
