@@ -3,6 +3,8 @@ require './computer'
 class RockPaperScissorsGame
   def initialize(computer)
     @computer = computer
+    @answer_options = ["rock", "paper", "scissors"]
+    @valid_input = @answer_options + ["q"]
   end
 
   def play
@@ -10,10 +12,10 @@ class RockPaperScissorsGame
       state_rules
       ask_for_player_move
       validate_player_move
-      interpret_player_answer
-      generate_computer_answer
+      interpret_player_response
+      generate_computer_move
       compare_results
-      declare_winner
+      print_results 
     end
   end
 
@@ -28,30 +30,31 @@ class RockPaperScissorsGame
   end
 
   def validate_player_move
-    answer_options = ["rock", "paper", "scissors"]
-    @valid_response = answer_options.include? @player_move || @player_move == "q"
-    while @player_move != @valid_response
-     puts "Sorry, please enter a valid response"
-     @player_answer = gets.chomp
+    until @valid_input.include?(@player_move)
+      print "Sorry, please enter a valid response > "
+      @player_move = gets.chomp
     end
   end
   
-  def interpret_player_answer
+  def interpret_player_response
     if @player_move == "q"
       exit
     end
   end
 
-  def generate_computer_answer
-    @computer_move = @computer.move
+  def generate_computer_move
+    @computer_move = @answer_options[@computer.move]
   end
 
   def compare_results
-    puts "comparing results"
+    winning_combos = {"rock" => "scissors", "scissors" => "paper, paper" => "rock" }
   end
 
-  def declare_winner
-
+ def print_results
+    puts "You put #{@player_move}"
+    puts "The computer put #{@computer_move}"
+    puts "The winner is: #{@winner}"
+    puts "End of game."
   end
 end
 
