@@ -1,8 +1,13 @@
 require './computer'
 
 class RockPaperScissorsGame
+
   ANSWER_OPTIONS = ["rock", "paper", "scissors"]
-  
+
+  def initialize(computer)
+    @computer = computer
+  end
+
   def play
     loop do
       state_rules
@@ -16,15 +21,15 @@ class RockPaperScissorsGame
   end
 
   def state_rules
-    puts "Let's play rock, paper, scissors"
-    puts "Enter rock, paper, scissors, or q to quit"
+    puts "Let's play rock, paper, scissors."
+    puts "Enter rock, paper, scissors, or q to quit."
   end
 
   def ask_for_player_move
     print "What's your move? > "
     @player_answer = gets.chomp
   end
-  
+
   def validate_answer
     valid_answer = ANSWER_OPTIONS.include? @player_answer || @player_answer == "q"
     while @player_answer != valid_answer
@@ -38,7 +43,7 @@ class RockPaperScissorsGame
   end
 
   def generate_computer_answer
-    @computer_answer = Computer.move
+    @computer_answer = @computer.move
   end
 
   def compare_results
@@ -52,6 +57,8 @@ class RockPaperScissorsGame
   def declare_winner
 
   end
+end
 
-  rock_paper_scissors_game = RockPaperScissorsGame.new
-  rock_paper_scissors_game.play
+computer = Computer.new
+rock_paper_scissors_game = RockPaperScissorsGame.new(computer)
+rock_paper_scissors_game.play

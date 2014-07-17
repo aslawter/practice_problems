@@ -1,7 +1,6 @@
 class Computer 
-  ANSWER_OPTIONS = ["rock", "paper", "scissors"]
 
   def move 
-    @computer_answer = ANSWER_OPTIONS.shuffle.first
+    @computer_answer = RockPaperScissorsGame::ANSWER_OPTIONS.shuffle.first
   end
 end
