@@ -25,7 +25,7 @@ class RockPaperScissorsGame
       state_rules
       ask_for_player_move
       validate_player_move
-      interpret_player_response
+      exit_on_quit
       generate_computer_move
       compare_results
     end
@@ -48,7 +48,7 @@ class RockPaperScissorsGame
     end
   end
 
-  def interpret_player_response
+  def exit_on_quit
     if @player_move == "q"
       exit
     end
