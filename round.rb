@@ -5,12 +5,12 @@ class Round
     "rock" => {"rock" => "Draw, no winner",
                "paper" => "Computer wins!",
                "scissors" => "You win" },
-               "paper" => {"paper" => "Draw, no winner",
-                           "scissors" => "Computer wins!",
-                           "rock" => "You win!" },
-                           "scissors" => {"scissors" => "Draw, no winner",
-                                          "rock" => "Computer wins!",
-                                          "paper" => "You win"},
+    "paper" => {"paper" => "Draw, no winner",
+                "scissors" => "Computer wins!",
+                "rock" => "You win!" },
+    "scissors" => {"scissors" => "Draw, no winner",
+                   "rock" => "Computer wins!",
+                   "paper" => "You win"},
   }
 
   ANSWER_OPTIONS = PLAYER_VERSUS_COMPUTER_RESULTS.keys
@@ -20,7 +20,7 @@ class Round
     @computer = Computer.new
   end
 
-  def game 
+  def game
     state_rules
     ask_for_player_move
     validate_player_move
