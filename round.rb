@@ -20,7 +20,7 @@ class Round
     @computer = Computer.new
   end
 
-  def game
+  def play
     state_rules
     ask_for_player_move
     validate_player_move

@@ -1,7 +1,6 @@
 require "./round"
 
 class RockPaperScissorsGame
-
   STARTING_ROUND = 1
 
   def initialize(round)
@@ -12,11 +11,10 @@ class RockPaperScissorsGame
     current_round = STARTING_ROUND
     loop do
       puts "Round: #{current_round}"
-      @round.game
+      @round.play
       current_round = current_round + 1
     end
   end
-
 end
 
 round = Round.new

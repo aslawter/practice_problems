@@ -1,5 +1,5 @@
 class Computer 
   def move 
-    rand(Round::ANSWER_OPTIONS) 
+    (Round::ANSWER_OPTIONS).sample 
   end
 end
