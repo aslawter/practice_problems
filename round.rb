@@ -53,7 +53,7 @@ class Round
   end
 
   def generate_computer_move
-    @computer_move = ANSWER_OPTIONS[@computer.move]
+    @computer_move = @computer.move
   end
 
   def compare_results
