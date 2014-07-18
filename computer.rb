@@ -1,5 +1,5 @@
 class Computer 
   def move 
-    rand(3) 
+    rand(Round::ANSWER_OPTIONS.count) 
   end
 end
