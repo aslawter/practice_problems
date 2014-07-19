@@ -29,6 +29,8 @@ class Round
     compare_results
   end
 
+  private
+
   def state_rules
     puts "Let's play rock, paper, scissors."
     puts "Enter rock, paper, scissors, or q to quit."
